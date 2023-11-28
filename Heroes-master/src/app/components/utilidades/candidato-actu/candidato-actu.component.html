@@ -1,0 +1,54 @@
+<div class="content mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Actualizar Candidato</h3>
+        <form (submit)="actualizarCandidato()" #candidatoForm="ngForm">
+            <div class="form-group">
+                <label for="nombreResolucion">nombreResolucion :</label>
+                <input type="text" class="form-control" id="nombreResolucion" placeholder="NombreResolucion"
+                    [(ngModel)]="candidato.nombreResolucion" name="nombreResolucion" required placeholder="Digite un nombre Resolucion"
+                    #nombreResolucion="ngModel">
+                <div class="alert alert-danger" *ngIf="nombreResolucion.invalid && (nombreResolucion.dirty || nombreResolucion.touched)">
+                    <div *ngIf="nombreResolucion.errors['required']">
+                        Digite el nombre Resolucion por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre :</label>
+                <input type="nombre" class="form-control" id="nombre" placeholder="nombre"
+                    [(ngModel)]="candidato.nombre" name="nombre" required
+                    placeholder="Digite un nombre" #nombre="ngModel"> <!-- Cambio aquí -->
+                <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div *ngIf="nombre.errors['required']">
+                        Digite su nombre por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">apellido :</label>
+                <input type="apellido" class="form-control" id="apellido" placeholder="apellido"
+                    [(ngModel)]="candidato.apellido" name="apellido" required
+                    placeholder="Digite un apellido" #apellido="ngModel"> <!-- Cambio aquí -->
+                <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                    <div *ngIf="apellido.errors['required']">
+                        Digite su apellido por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inscritos">inscritos :</label>
+                <input type="inscritos" class="form-control" id="inscritos" placeholder="Inscritos"
+                    [(ngModel)]="candidato.inscritos" name="inscritos" required
+                    placeholder="Digite un inscritos" #inscritos="ngModel"> <!-- Cambio aquí -->
+                <div class="alert alert-danger" *ngIf="inscritos.invalid && (inscritos.dirty || inscritos.touched)">
+                    <div *ngIf="inscritos.errors['required']">
+                        Digite su inscritos por favor
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!candidatoForm.form.valid">Actualizar</button>
+            <button (click)="irALaListaDeCandidato()" class="btn btn-primary">Cancelar</button>
+        </form>
+    </div>
+  </div>
+  

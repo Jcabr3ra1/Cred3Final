@@ -1,0 +1,31 @@
+<div class="content mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Actualizar Mesa</h3>
+        <form (submit)="actualizarMesa()" #mesaForm="ngForm">
+            <div class="form-group">
+                <label for="mesa">Numero de mesas :</label>
+                <input type="text" class="form-control" id="numMesas" placeholder="Numero de mesas"
+                    [(ngModel)]="mesa.numMesas" name="numMesas" required placeholder="Digite numero de mesa"
+                    #numMesas="ngModel">
+                <div class="alert alert-danger" *ngIf="numMesas.invalid && (numMesas.dirty || numMesas.touched)">
+                    <div *ngIf="numMesas.errors['required']">
+                        Digite el numero de mesas por favor
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inscritos">inscritos :</label>
+                <input type="inscritos" class="form-control" id="inscritos" placeholder="inscritos"
+                    [(ngModel)]="mesa.inscritos" name="inscritos" required
+                    placeholder="Digite un inscritos" #inscritos="ngModel"> <!-- Cambio aquí -->
+                <div class="alert alert-danger" *ngIf="inscritos.invalid && (inscritos.dirty || inscritos.touched)">
+                    <div *ngIf="inscritos.errors['required']">
+                        Digite los inscritos por favor
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success" [disabled]="!mesaForm.form.valid">Actualizar</button>
+            <button (click)="irALaListaDeMesa()" class="btn btn-primary">Cancelar</button>
+        </form>
+    </div>
+  </div>
